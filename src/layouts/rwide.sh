@@ -50,7 +50,7 @@ execute_layout() {
 
   local mon_height=$(jget height "$(bspc query -T -m)")
 
-  local want=$(( $master_size * $mon_height ))
+  local want=$(rcalc "$master_size * $mon_width")
   local have=$(jget height "$(bspc query -T -n '@/2')")
 
   bspc node '@/2' --resize top 0 $((have - want))

@@ -18,3 +18,10 @@ auto_balance() {
   # Balance the tree rooted at some node automatically.
   bspc node "$1" -B
 }
+
+# calc to rounded integer
+rcalc() {
+  expr=${@}
+
+  echo "scale=1; $expr" | bc | cut -d. -f1
+}
